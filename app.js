@@ -20,3 +20,23 @@ function getRandomColor() {
 document.getElementById('changeThemeButton').addEventListener('click', () => {
   document.body.style.backgroundColor = getRandomColor();
 });
+
+document.getElementById('notifyButton').addEventListener('click', () => {
+  if (Notification.permission === 'granted') {
+    showNotification();
+  } else if (Notification.permission !== 'denied') {
+    Notification.requestPermission().then(permission => {
+      if (permission === 'granted') {
+        showNotification();
+      }
+    });
+  }
+});
+
+function showNotification() {
+  const notificationOptions = {
+    body: 'This is a sample notification.',
+    icon: '/test123test/images/icon-192x192.png'
+  };
+  new Notification('Hello!', notificationOptions);
+}
