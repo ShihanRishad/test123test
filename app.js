@@ -23,20 +23,22 @@ document.getElementById('changeThemeButton').addEventListener('click', () => {
 
 document.getElementById('notifyButton').addEventListener('click', () => {
   if (Notification.permission === 'granted') {
-    showNotification();
+    navigator.serviceWorker.ready.then(registration => {
+      registration.showNotification('Hello!', {
+        body: 'This is a sample notification.',
+        icon: '/test123test/images/icon-192x192.png'
+      });
+    });
   } else if (Notification.permission !== 'denied') {
     Notification.requestPermission().then(permission => {
       if (permission === 'granted') {
-        showNotification();
+        navigator.serviceWorker.ready.then(registration => {
+          registration.showNotification('Hello!', {
+            body: 'This is a sample notification.',
+            icon: '/test123test/images/icon-192x192.png'
+          });
+        });
       }
     });
   }
 });
-
-function showNotification() {
-  const notificationOptions = {
-    body: 'This is a sample notification.',
-    icon: '/test123test/images/icon-192x192.png'
-  };
-  new Notification('Hello!', notificationOptions);
-}
