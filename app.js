@@ -26,7 +26,8 @@ document.getElementById('notifyButton').addEventListener('click', () => {
     navigator.serviceWorker.ready.then(registration => {
       registration.showNotification('Hello!', {
         body: 'This is a sample notification.',
-        icon: '/test123test/images/icon-192x192.png'
+        icon: '/test123test/images/icon-192x192.png',
+        badge: '/test123test/images/badge-icon.png'
       });
     });
   } else if (Notification.permission !== 'denied') {
@@ -35,7 +36,8 @@ document.getElementById('notifyButton').addEventListener('click', () => {
         navigator.serviceWorker.ready.then(registration => {
           registration.showNotification('Hello!', {
             body: 'This is a sample notification.',
-            icon: '/test123test/images/icon-192x192.png'
+            icon: '/test123test/images/icon-192x192.png',
+            badge: '/test123test/images/badge-icon.png'
           });
         });
       }
