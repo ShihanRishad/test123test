@@ -37,6 +37,13 @@
       "src": "/test123test/images/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
+      "purpose": "any"
+    },
+        {
+      "src": "/test123test/images/icon-192x192.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/test123test/images/icon-384x384.png",
